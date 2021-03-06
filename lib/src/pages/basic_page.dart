@@ -16,6 +16,7 @@ class BasicPage extends StatelessWidget {
               children: [
                 _createHeader(context),
                 _createIcons(),
+                _createText(),
               ],
             ),
           ),
@@ -87,6 +88,16 @@ class BasicPage extends StatelessWidget {
             style: TextStyle(color: color),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _createText() {
+    return Container(
+      padding: null,
+      child: Text(
+        'Tempor consequat mollit minim qui ut nostrud minim do. Tempor qui labore consequat adipisicing ea culpa nisi. Aliquip et dolore proident magna commodo. Mollit reprehenderit nostrud eu id Lorem ullamco labore. Consectetur id velit culpa in elit velit culpa duis et amet velit in consequat magna. Anim ullamco elit nulla elit ut cupidatat ad voluptate cillum culpa ipsum consectetur sit non. Cupidatat ut qui adipisicing do nulla.',
+        textAlign: TextAlign.justify,
       ),
     );
   }
