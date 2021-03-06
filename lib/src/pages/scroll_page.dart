@@ -94,7 +94,8 @@ class ScrollPage extends StatelessWidget {
     );
 
     return Center(
-      child: Card(
+      child: RaisedButton(
+        onPressed: () {},
         shape: StadiumBorder(),
         color: Colors.cyanAccent,
         child: Container(
