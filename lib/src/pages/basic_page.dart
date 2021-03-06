@@ -7,20 +7,24 @@ class BasicPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-          body: Column(
-        children: [
-          _createImage(),
-          Container(
-            padding: EdgeInsets.all(30),
-            child: Column(
-              children: [
-                _createHeader(context),
-                _createIcons(),
-                _createText(),
-              ],
+          body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _createImage(),
+            Container(
+              padding: EdgeInsets.all(30),
+              child: Column(
+                children: [
+                  _createHeader(context),
+                  _createIcons(),
+                  _createText(),
+                  _createText(),
+                  _createText(),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       )),
     );
   }
