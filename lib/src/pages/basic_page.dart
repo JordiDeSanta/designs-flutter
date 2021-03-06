@@ -73,11 +73,14 @@ class BasicPage extends StatelessWidget {
 
   Widget _createIcon(String text, IconData icon, Color color) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 28, vertical: 30),
+      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 30),
       child: Column(
         children: [
-          Icon(icon, color: color),
-          SizedBox(height: 5),
+          IconButton(
+            icon: Icon(icon, color: color),
+            onPressed: () {},
+          ),
+          SizedBox(height: 8),
           Text(
             text,
             textAlign: TextAlign.center,
