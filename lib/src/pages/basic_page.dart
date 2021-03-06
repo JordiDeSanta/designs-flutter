@@ -10,7 +10,15 @@ class BasicPage extends StatelessWidget {
           body: Column(
         children: [
           _createImage(),
-          _createHeader(context),
+          Container(
+            padding: EdgeInsets.all(30),
+            child: Column(
+              children: [
+                _createHeader(context),
+                _createIcons(),
+              ],
+            ),
+          ),
         ],
       )),
     );
@@ -27,7 +35,6 @@ class BasicPage extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.all(30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -48,6 +55,36 @@ class BasicPage extends StatelessWidget {
         Icon(Icons.star, color: Colors.redAccent),
         Text('41'),
       ],
+    );
+  }
+
+  Widget _createIcons() {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _createIcon('CALL', Icons.call, Colors.indigoAccent),
+          _createIcon('ROUTE', Icons.ac_unit_rounded, Colors.indigoAccent),
+          _createIcon('SHARE', Icons.share, Colors.indigoAccent),
+        ],
+      ),
+    );
+  }
+
+  Widget _createIcon(String text, IconData icon, Color color) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 28, vertical: 30),
+      child: Column(
+        children: [
+          Icon(icon, color: color),
+          SizedBox(height: 5),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: color),
+          ),
+        ],
+      ),
     );
   }
 }
