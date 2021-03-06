@@ -29,7 +29,7 @@ class ScrollPage extends StatelessWidget {
     return Stack(
       children: [
         _backgroundColor(),
-        _createImage(),
+        _createButton(),
       ],
     );
   }
@@ -82,6 +82,25 @@ class ScrollPage extends StatelessWidget {
               color: Colors.white,
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _createButton() {
+    final style = TextStyle(
+      color: Colors.white,
+      fontSize: 28,
+    );
+
+    return Center(
+      child: Card(
+        shape: StadiumBorder(),
+        color: Colors.cyanAccent,
+        child: Container(
+          width: 200,
+          height: 50,
+          child: Center(child: Text('Welcome', style: style)),
         ),
       ),
     );
