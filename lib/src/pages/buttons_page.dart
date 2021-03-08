@@ -19,6 +19,7 @@ class ButtonsPage extends StatelessWidget {
             child: Column(
               children: [
                 _titles(),
+                _buttons(),
               ],
             ),
           ),
@@ -137,6 +138,16 @@ class ButtonsPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buttons() {
+    return Table(
+      children: [
+        TableRow(
+          children: 
+        )
+      ],
     );
   }
 }
