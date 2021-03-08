@@ -18,24 +18,13 @@ class ButtonsPage extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                _titles(context),
+                _titles(),
               ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            label: 'Hello',
-            icon: Icon(Icons.calendar_today),
-          ),
-          BottomNavigationBarItem(
-            label: 'Hello',
-            icon: Icon(Icons.calendar_today),
-          ),
-        ],
-      ),
+      bottomNavigationBar: _navigationBar(context),
     );
   }
 
@@ -89,7 +78,7 @@ class ButtonsPage extends StatelessWidget {
     );
   }
 
-  Widget _titles(BuildContext context) {
+  Widget _titles() {
     final titleStyle = TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
@@ -119,6 +108,34 @@ class ButtonsPage extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _navigationBar(BuildContext context) {
+    return Theme(
+      data: Theme.of(context).copyWith(
+        canvasColor: Color.fromRGBO(55, 57, 84, 1.0),
+        primaryColor: Colors.pinkAccent,
+        textTheme: Theme.of(context).textTheme.copyWith(
+              caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0)),
+            ),
+      ),
+      child: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            title: Container(),
+            icon: Icon(Icons.calendar_today),
+          ),
+          BottomNavigationBarItem(
+            title: Container(),
+            icon: Icon(Icons.pie_chart_outlined),
+          ),
+          BottomNavigationBarItem(
+            title: Container(),
+            icon: Icon(Icons.supervised_user_circle),
+          ),
+        ],
       ),
     );
   }
