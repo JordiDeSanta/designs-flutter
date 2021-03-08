@@ -24,6 +24,18 @@ class ButtonsPage extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            label: 'Hello',
+            icon: Icon(Icons.calendar_today),
+          ),
+          BottomNavigationBarItem(
+            label: 'Hello',
+            icon: Icon(Icons.calendar_today),
+          ),
+        ],
+      ),
     );
   }
 
