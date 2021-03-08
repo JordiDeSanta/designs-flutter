@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:designs/src/pages/buttons_page.dart';
 import 'package:designs/src/pages/scroll_page.dart';
 import 'package:designs/src/pages/basic_page.dart';
 
@@ -10,10 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      initialRoute: 'scroll',
+      initialRoute: 'buttons',
       routes: {
         'basic': (BuildContext context) => BasicPage(),
         'scroll': (BuildContext context) => ScrollPage(),
+        'buttons': (BuildContext context) => ButtonsPage(),
       },
     );
   }
