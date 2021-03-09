@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
+import 'dart:ui';
 
 class ButtonsPage extends StatelessWidget {
   const ButtonsPage({Key key}) : super(key: key);
@@ -143,23 +144,25 @@ class ButtonsPage extends StatelessWidget {
 
   Widget _buttons() {
     return Container(
-        width: 325.0,
-        child: Table(
-          children: [
-            TableRow(children: [
-              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
-              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
-            ]),
-            TableRow(children: [
-              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
-              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
-            ]),
-            TableRow(children: [
-              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
-              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
-            ])
-          ],
-        ));
+      width: 325.0,
+      child: Table(
+        children: [
+          TableRow(children: [
+            _createButton('Bus', Icons.border_all, Colors.blue, 30),
+            _createButton('Bike', Icons.directions_bike, Colors.red, 30),
+          ]),
+          TableRow(children: [
+            _createButton('Car', Icons.local_taxi, Colors.pink, 30),
+            _createButton(
+                'Plane', Icons.airplanemode_active, Colors.purple, 30),
+          ]),
+          TableRow(children: [
+            _createButton('Walk', Icons.directions_walk, Colors.brown, 30),
+            _createButton('Run', Icons.directions_run, Colors.grey, 30),
+          ])
+        ],
+      ),
+    );
   }
 
   Widget _createButton(String text, IconData icon, Color color, double radius) {
@@ -170,29 +173,31 @@ class ButtonsPage extends StatelessWidget {
         color: Color.fromRGBO(62, 66, 107, 0.7),
         borderRadius: BorderRadius.circular(radius),
       ),
-      child: Column(children: [
-        Column(
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 25.0, bottom: 5.0),
-              child: CircleAvatar(
-                radius: 40,
-                backgroundColor: color,
-                child: Icon(
-                  icon,
-                  color: Colors.white,
+      child: Column(
+        children: [
+          Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 25.0, bottom: 5.0),
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundColor: color,
+                  child: Icon(
+                    icon,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-            Text(
-              text,
-              style: TextStyle(
-                color: color,
+              Text(
+                text,
+                style: TextStyle(
+                  color: color,
+                ),
               ),
-            ),
-          ],
-        ),
-      ]),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
