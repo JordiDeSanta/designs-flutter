@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
 import 'dart:ui';
@@ -159,44 +160,51 @@ class ButtonsPage extends StatelessWidget {
           TableRow(children: [
             _createButton('Walk', Icons.directions_walk, Colors.brown, 30),
             _createButton('Run', Icons.directions_run, Colors.grey, 30),
-          ])
+          ]),
         ],
       ),
     );
   }
 
   Widget _createButton(String text, IconData icon, Color color, double radius) {
-    return Container(
-      height: 150.0,
-      margin: EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(62, 66, 107, 0.7),
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(radius),
-      ),
-      child: Column(
-        children: [
-          Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 25.0, bottom: 5.0),
-                child: CircleAvatar(
-                  radius: 40,
-                  backgroundColor: color,
-                  child: Icon(
-                    icon,
-                    color: Colors.white,
-                  ),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: Container(
+            height: 150.0,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(62, 66, 107, 0.7),
+              borderRadius: BorderRadius.circular(radius),
+            ),
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    SizedBox(height: 25.0),
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundColor: color,
+                      child: Icon(
+                        icon,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    Text(
+                      text,
+                      style: TextStyle(
+                        color: color,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              Text(
-                text,
-                style: TextStyle(
-                  color: color,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ],
+        ),
       ),
     );
   }
