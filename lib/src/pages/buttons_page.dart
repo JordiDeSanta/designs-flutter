@@ -94,7 +94,7 @@ class ButtonsPage extends StatelessWidget {
 
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.only(top: 30, left: 30, bottom: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -142,12 +142,57 @@ class ButtonsPage extends StatelessWidget {
   }
 
   Widget _buttons() {
-    return Table(
-      children: [
-        TableRow(
-          children: 
-        )
-      ],
+    return Container(
+        width: 325.0,
+        child: Table(
+          children: [
+            TableRow(children: [
+              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
+              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
+            ]),
+            TableRow(children: [
+              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
+              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
+            ]),
+            TableRow(children: [
+              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
+              _createButton('Bus', Icons.bus_alert, Colors.amber, 30),
+            ])
+          ],
+        ));
+  }
+
+  Widget _createButton(String text, IconData icon, Color color, double radius) {
+    return Container(
+      height: 150.0,
+      margin: EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(62, 66, 107, 0.7),
+        borderRadius: BorderRadius.circular(radius),
+      ),
+      child: Column(children: [
+        Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 25.0, bottom: 5.0),
+              child: CircleAvatar(
+                radius: 40,
+                backgroundColor: color,
+                child: Icon(
+                  icon,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                color: color,
+              ),
+            ),
+          ],
+        ),
+      ]),
     );
   }
 }
